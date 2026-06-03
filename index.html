@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中僚 様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>田中僚 様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. オイシックス・ラ・大地株式会社</a>
+  <a href="#k2">2. 株式会社estie（エスティ）</a>
+  <a href="#k3">3. ランディット株式会社</a>
+  <a href="#k4">4. フリー株式会社（freee）</a>
+  <a href="#k5">5. 株式会社現場共創機構</a>
+  <a href="#k6">6. トグルホールディングス株式会社</a>
+  <a href="#k7">7. CPAエクセレントパートナーズ株式会社</a>
+  <a href="#k8">8. 弁護士ドットコム株式会社</a>
+  <a href="#k9">9. 株式会社カオナビ</a>
+  <a href="#k10">10. 株式会社ストライク</a>
+  <a href="#k11">11. 株式会社M&A総合研究所</a>
+  <a href="#k12">12. 株式会社GA technologies</a>
+  <a href="#k13">13. 株式会社BuySell Technologies</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション（事業責任者候補）</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">オイシックス・ラ・大地株式会社</div>
+  <div class="co-url"><a href="https://www.oisixradaichi.co.jp/" target="_blank">https://www.oisixradaichi.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都品川区大崎一丁目11番2号 ゲートシティ大崎イーストタワー5F</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    オイシックス・ラ・大地は、「食を通じて社会課題を解決する」ことを軸に、食品宅配事業に留まらず、フードテックやサステナビリティ領域へと事業を拡大している成長企業です。<br>近年は物流・データ活用・商品開発など多様な領域で変革を推進しており、既存事業の磨き込みと新規事業創出を両立し、社員一人ひとりが裁量を持って挑戦できる環境が整っています。実際に若手・中途社員が新規プロジェクトや事業改善を牽引する事例も多く、部門横断で価値創出に関われる点も魅力です。<br>さらに、産学連携によるフードテック人材育成にも注力しており、食産業の未来をつくる先進的な取り組みを推進。<br>社会貢献性と事業成長性の双方を求める方にとって、大きな挑戦機会が広がっています。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2000年にマッキンゼー出身の髙島宏平氏が創業した、自然派食品宅配業界最大手企業。創業時から、生産者が自分の子どもにも安心して食べさせられる食材を家庭へ届けるという想いを軸に、食品EC宅配市場を開拓。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2000年にマッキンゼー出身の髙島宏平氏が創業した、自然派食品宅配業界最大手企業。創業時から、生産者が自分の子どもにも安心して食べさせられる食材を家庭へ届けるという想いを軸に、食品EC宅配市場を開拓。2017年に大地を守る会、2018年にらでぃっしゅぼーやと経営統合し、現在は3ブランド体制で約40万人の顧客基盤を保有。2024年には給食事業大手シダックスの子会社化、アグリゲートの連結子会社化など、M&Aを通じて事業領域を拡大。保育園向けミールキットすくすくOisix、移動スーパーとくし丸など、食に関する社会課題をビジネスで解決する事業展開も特徴。</p><p>同社の魅力は7つの行動規範ORDismに象徴されるベンチャーマインドにある「ベストを尽くすな、Missionを成し遂げろ」「早いもの勝ち、速いもの価値」「お客さまを裏切れ」など、常識にとらわれず挑戦し続ける文化が根付いています。</p><p>育休取得率100％、男性の育休取得も多く、兼業・副業を認める二足のわらじ制度など働き方の柔軟性も高い環境です。約40万人のユーザーを支える大規模システムの刷新プロジェクトも進行中で、フードテックベンチャーとして業界構造変革に挑戦し続けています。</p><p><strong>代表取締役社長　髙島 宏平氏</strong><br>1973年、神奈川県生まれ。東京大学大学院工学系研究科情報工学専攻終了。1998年、大学院修了と同時に外資系コンサルティング会社のマッキンゼーに入社。Ｅコマースグループのコアメンバーとして活躍。2000年6月、インターネットを通じて安全でおいしい食材を一般家庭に宅配するオイシックス株式会社を設立。同社代表取締役社長に就任。2007年、世界経済フォーラム（ダボス会議）が選ぶ「ヤング・グローバル・リーダーズ」に選出される。東日本大震災によって被害を受けた東日本食品関連産業の長期的支援を目的とした一般社団法人「東の食の会」代表理事をつとめる。2018年からは一般社団法人日本車いすラグビー連盟　理事長に就任し、経済界からパラスポーツを支援。2021年より経済同友会副代表幹事に就任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション（事業責任者候補）</div>
+          <div class="job-preview">3年で事業責任者（事業部長）となり、数千億規模のアセットを動かして社会をアップデートする</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>はじめに</strong><br>2027年、売上3,000億円。前例のない問いを、ビジネスで突破する。</p><p>私たちが求めているのは、完成された組織に安住する方ではありません。3年で事業責任者（事業部長）となり、数千億規模のアセットを動かして社会をアップデートする。その覚悟がある方のみ、この先をお読みください。</p><p>食の領域における社会課題は、社会情勢や技術革新によってその姿を刻々と変えていきます。この領域で世界屈指のインフラを構築することは、並大抵の努力では不可能です。変化し続ける現場で「正解のない問い」に向き合い、自らを、そして世界を圧倒的なスピード感で更新し続ける変革者を募集します。</p><p><strong>募集背景</strong><br>食の「新しい当たり前」を、私たちがつくる。オイシックス・ラ・大地は、「これからの食卓、これからの畑」という企業理念を掲げ、食に関する社会課題をビジネスの手法で解決し、社会システムをアップデートしてきました。農薬に頼らない野菜、食の安全を届けるサブスクモデル、過疎地でも買い物が楽しめる移動スーパー、病気で食事制限があっても家族と同じメニューで豊かな食卓を囲めるヘルスケアKit——。 私たちが形にしてきたのは、かつて「無理だ」と言われたことばかりです。</p><p><strong>世界屈指の食のサブスクリプション企業へ</strong><br>「Oisix」「らでぃっしゅぼーや」「大地を守る会」の3ブランドの統合、そして2024年のシダックス株式会社の連結子会社化を経て、2025年3月期には売上高2,560億円を達成しました。しかし、私たちの野心はここで止まりません。2027年度には売上高目標3,000億円を掲げ、世界屈指の食のサブスクリプション企業へと飛躍します。</p><p><strong>事業戦略と各セグメントの役割</strong><br>オイシックス・ラ・大地は、既存事業の深化と新領域への拡張を同時に推進しています。各セグメントが明確な戦略的役割を担い、相互のシナジーを生み出しています。</p><ul><li><strong>BtoCサブスク事業（食品宅配）</strong><br>戦略的役割： 安定収益源の確保とブランド価値の構築<br>主な取り組み： 圧倒的なCX（顧客体験）の進化を追求。「超ラクKit」をはじめとする超時短商品の拡充により、多様化するライフスタイルに寄り添い、会員数の維持・拡大を牽引します。</li><li><strong>BtoBサブスク事業（給食・法人向け）</strong><br>戦略的役割： 第2の成長柱としての収益性向上と食のインフラ構築<br>主な取り組み： 病院や保育園等の施設向け食材提供において、価格適正化と運営の標準化を徹底。AI献立導入による省人化（タイパモデル）を推進し、業界全体のDXと利益率改善をリードします。</li></ul><p>売上の拡大は、解決できる社会課題の規模に直結します。この巨大なインパクトを現実のものとするには、非連続な成長を生み出すリーダーが不可欠です。</p><p><strong>求めるのは、「カオス」をリードできる経営者</strong><br>正直なところ、私たちが掲げる戦略をスピード感をもって実行することは、極めて難易度が高い挑戦です。整った環境や、用意された正解などはありません。必要なのは、緻密な戦略を練り上げる知性と、現場の泥にまみれる実行力、そして何より「正解のない問い」を楽しみ、勝ち筋を見出すまでの強靭な精神力です。「新たな道」を作る挑戦環境だからこそ燃える人、圧倒的な熱量で食の未来をリードしたい人。そんな「経営の当事者」の挑戦を待っています。</p><p><strong>配属先やミッションについての考え方</strong><br>私たちは、あなたに数年後、3,000億円企業の柱を担う「事業責任者（事業部長）」として活躍していただくことを強く期待しています。そのため、具体的な配属先やミッションの決定にあたっては、ご本人の適性や強みを活かすことはもちろん、「将来、事業部長として立つために、現在のスキルセットに何を追加できるとよいのか」という観点を重視します。そのギャップを埋め、事業責任者としての実力を最短距離で獲得していただけるよう、最適な打席（修羅場）をご用意します。※具体的な配属先は、オファー時、または入社前後のコミュニケーションを通じて、双方納得の上で決定させていただきます。</p><p><strong>想定される配属先と売上高</strong>（2025年3月期実績）<br>いずれかの事業部、または経営企画本部に部付けで配属となります。経営や事業の最重要イシューをダイレクトにお任せします。</p><ul><li><strong>事業部</strong><br>・BtoCサブスク事業（食品宅配）：約970億円<br>　Oisix（約600億円）、らでぃっしゅぼーや（約160億円）、大地を守る会（約100億円）ほか<br>・BtoBサブスク事業（給食・法人向け）：約600億円<br>　病院、高齢者施設、保育園等への食事提供受託<br>・その他事業：約210億円<br>　移動スーパー「とくし丸」、三越伊勢丹のEC支援「ISETAN DOOR」など</li><li><strong>経営企画本部</strong><br>　経営戦略、FP＆Aなど</li></ul><p><span class='tag tag-must'>MUST</span> 社会への野心：ビジネスの力で社会をアップデートしたいという執念を持っている方。生活の根幹である「食」から、世界規模のインパクトを本気で狙いたい方<br><span class='tag tag-must'>MUST</span> 不屈のリーダーシップ：絶体絶命の局面、正解のない問いを前にしても、自ら旗を掲げ、周囲を巻き込み、完遂まで導ける方<br>※業界・職種の経験は問いません。</p><p><strong>求める人物像</strong><br>・「難しいから無理だ」と言われるほど燃える方：難易度の高い問題に直面した際、解決に向けた情熱をより一層たぎらせるタイプの方<br>・圧倒的な自己更新能力：現状に安住せず、貪欲な好奇心と学習意欲を持ち、目まぐるしい変化を「進化のチャンス」として楽しめる方<br>・行動規範の体現者： 私たちが掲げる「7つの行動規範」を、誰よりも高いレベルで、泥臭く体現し続けられる方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.oisixradaichi.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">事業開発担当者</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社estie（エスティ）</div>
+  <div class="co-url"><a href="https://www.estie.jp/corp/" target="_blank">https://www.estie.jp/corp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区赤坂9-7-2 東京ミッドタウン・イースト</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    事業開発担当者として16兆円市場の開拓に挑戦できる環境です。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「産業の真価を、さらに拓く。」をパーパスに掲げ、商業用不動産業界が抱えるデータ流通の課題をデジタル化により解決し、業界の取引を円滑にするサービスを不動産デベロッパーや機関投資家などに提供しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「産業の真価を、さらに拓く。」をパーパスに掲げ、商業用不動産業界が抱えるデータ流通の課題をデジタル化により解決し、業界の取引を円滑にするサービスを不動産デベロッパーや機関投資家などに提供しています。商業用不動産データ分析基盤「estie マーケット調査」を中心に相互運用が可能な複数サービスを同時提供することで、顧客にとって一連の業務課題を解決するコンパウンドスタートアップとして、商業用不動産業界のDXを牽引しています。</p><p>2024年10月にはシリーズBラウンドでの第三者割当増資により、国内外の投資家 計5社を引受先として28億円の追加調達を行い、累計調達額は約45億円となっています。現在は合計10のプロダクトを提供していますが、開発スピードを上げて今後3年で2倍となる合計20のプロダクト展開を目指しています。現在幅広いポジションで積極採用を行っています。</p><p>不動産物件取引の情報収集に関する特許を取得し、シリーズBで28億円を調達するなど、成長著しい企業です。</p><p><strong>代表取締役　平井 瑛氏</strong><br>1991年生まれ。2014年 東京大学経済学部卒業後、三菱地所株式会社に入社。米国・英国・ASEAN・中国における不動産投資運用業務に従事し、既存・新規を合わせて約1兆円規模のポートフォリオマネジメント。新事業創造部を兼務後、東京におけるオフィスビル賃貸営業やスタートアップ支援施設の立ち上げを経て、2018年12月株式会社estieを創業。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業開発担当者</div>
+          <div class="job-preview">16兆円市場を開拓する事業開発担当として新機能開発の推進や新市場開拓にチャレンジ</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集背景</strong><br>弊社ではオフィス不動産を中心とした事業用不動産業界全体のDXをするため、複数のプロダクトを展開し、事業展開を目論んでおります。上記戦略をとるにあたり、新規事業の企画・立ち上げをになっていただける方を募集する運びとなりました。</p><p><strong>具体的な業務内容</strong><br>16兆円市場を開拓する事業開発担当として、オフィス事業者向けのデータベースサービス「estie マーケット調査」の新機能開発の推進や、商業・物流施設などオフィス以外の市場開拓にチャレンジしていただきます。</p><ul><li>ユーザーヒアリング、他社事例調査等を通じた新プロダクトのGo To Market戦略の立案</li><li>新プロダクトに必要なオペレーション設計</li><li>新プロダクトをスケールさせるために必要なリソース調達</li></ul><p><span class='tag tag-must'>MUST</span> 大手顧客との折衝経験（2年以上）<br><span class='tag tag-must'>MUST</span> 事業開発／又はそのコンサルタント経験（3年以上）</p><p><strong>求める人物像</strong><br>・チームを巻き込む力のある方<br>・仮説検証を短期スパンで何度も行える方<br>・オペレーション設計能力のある方<br>・自ら新プロダクトを営業することも厭わない方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">🔺 副業条件あり</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.estie.jp/corp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k3"><div class="card-inner">
+  <div class="badges"><span class="badge">事業本部長</span><span class="badge badge-blue">未上場（N-3）</span></div>
+  <div class="co-name">ランディット株式会社</div>
+  <div class="co-url"><a href="https://landit.co.jp/" target="_blank">https://landit.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都新宿区西新宿二丁目1番1号　新宿三井ビルディング40階</td></tr><tr><th>上場区分</th><td>未上場（N-3）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-3期</li><li>社長リレーション</li></ul><p>駐停車の自動化からモビリティインフラを構築し、価値を最大化する土地活用を行っています。駐車場の貸し借りに生じる時間とプロセスを削減し、ホテル・飛行機・新幹線のような予約・利用体験を提供されています。プロダクトは7つで、今期50億目標でビジネスも好調、数年後のIPOに向けてマネジメントレイヤーを積極的に募集しています。</p>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">モビリティ×不動産×AIを掛け合わせ、駐停車の自動化からモビリティインフラ構築を目指す注目のスタートアップです。「世の中に最適と豊かさを提供し、人々の営みに欠かせない存在に」をミッションに、アナログからデジタルへ、ハードからソフトまで、あらゆる角度から駐車場という余白の価値最大化に挑んでいます。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>モビリティ×不動産×AIを掛け合わせ、駐停車の自動化からモビリティインフラ構築を目指す注目のスタートアップです。「世の中に最適と豊かさを提供し、人々の営みに欠かせない存在に」をミッションに、アナログからデジタルへ、ハードからソフトまで、あらゆる角度から駐車場という余白の価値最大化に挑んでいます。</p><p>日本の自動車保有台数に対し、把握されている駐車場がごく一部である現状に着目。AIと人の手、AIカメラと管理ソフトウェアを組み合わせ、Googleやゼンリンをも上回る車室単位の圧倒的なデータベースを構築・更新しています。</p><p>建設現場や通勤用駐車場手配サービス「at PORT」をはじめ、駐車場管理を効率化するSaaS「SYNC PORT（シンクポート）」、個人向けの予約式短期駐車場サービス「PIT PORT（ピットポート）」、さらに、AIカメラによる現場管理システム「AIMO（アイモ）」、月極駐車場のオンラインマーケット「PARK STOCK（パークストック）」、コインパーキング、商業施設駐車場などのETC化アプリ「PARK FLOW（パークフロー）」などを展開しています。</p><p>これらの多様なプロダクトを通じて、単独企業では困難なあらゆる駐車スペースのシームレスな運用を実現しています。2024年度には黒字化を達成し、今期は約50億円弱の売上見込み。2028〜2029年のIPOを目指すなど、今まさに成長加速フェーズにある企業です。</p><p><strong>代表取締役社長 CEO　藤林 謙太氏</strong><br>2010年三菱商事株式会社に入社し、建設機械・産業機械・自動車の事業領域を担当。株式会社産業革新機構にてクロスボーダーのM＆Aを担当し、英国、日本の投資先（再生エネルギー関連） の取締役に就任。日本トイザらス株式会社では、Directorof Strategy ／戦略プロジェクト推進部長として、全社における機能横断的な戦略の立案・実行を担当。その後、IT企業等を経て、2021年にランディット株式会社を創業。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業本部長</div>
+          <div class="job-preview">事業拡大フェーズにおける重要なポジションとして事業戦略の立案・実行から組織マネジメントまで</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>背景</strong><br>現在はプロダクト単位で事業本部体制を敷いていますが、顧客側（建設・物流・不動産）からは領域単位で複数のプロダクトを提案するケースが多いため、「事業領域単位（コンストラクション本部、ロジスティクス本部など）」への再編も検討しています。現状は一人の本部長が複数の事業を兼任していますが、今後は兼任を解消し、それぞれの事業に専任の本部長を配置したいと考えています。</p><p><strong>仕事内容</strong><br>当社は、「世の中に最適と豊かさを提供し、人々の営みに欠かせない存在に」というミッションを掲げ、モビリティ領域と不動産領域のデジタル化を志し、2021年に創立したスタートアップ企業です。将来的には「土地を探す、駐車場を探す」という行動が、「ホテルや飛行機の予約～利用～決済」のように簡単になる世界の実現を進めており、EVや自動運転車両にとって必要不可欠なインフラとなることを目指しています！</p><p><strong>市場の可能性：</strong><br>日本のGDPのTOP5に位置する不動産、物流、建設業界に共通する「駐車場」領域。これまで収益性の低さと高い管理工数からDX化が見送られてきたこの市場は、約3兆円規模の潜在価値を秘めています。オーナー側は「煩雑な管理業務」などに、利用者は「リアルタイムでの空き情報へのアクセス不足」などに悩む中、真の課題解決に挑むプレイヤーが限られた、まさにブルーオーシャン市場です。</p><p><strong>当社の強み：</strong><br>当社は駐車場DXのパイオニアとして、複数の革新的プロダクトを展開。7つの事業ポートフォリオは、多様な収益モデル（サクセスフィー、トランザクション課金、レベニューシェア、継続課金等）を展開し、安定性と成長性の両立を目指しています。この独自のビジネスモデルと市場開拓力が評価され、国内外の著名VCからシリーズAで12億円超の資金調達を実現。グローバル展開を視野に入れた成長ステージに入ってきています。</p><p><strong>期待する役割</strong>（変更の範囲は、会社が定める業務）：<br>事業拡大フェーズにおける重要なポジションとして、以下のミッションをお任せする想定です。</p><ul><li>事業戦略の立案・実行: 新規市場の開拓から既存事業の拡大まで、データに基づく戦略策定</li><li>収益化モデルの構築: 多様な収益源を組み合わせた持続可能なビジネスモデルの設計と実装</li><li>アライアンス構築: 業界を代表する企業との戦略的パートナーシップの交渉・推進</li><li>プロジェクトリード: 複数の重要案件の同時進行管理と最適化</li><li>組織マネジメント: 最大20名規模のチームビルディングとリーダーシップ</li></ul><p><span class='tag tag-must'>MUST</span> 以下のいずれかの経験を必須とする：<br>・GAFAおよびそれに準ずるグローバルテック企業<br>・国内外の大手戦略コンサルティングファーム（McKinsey, BCG, Bain, A.T. Kearney, Roland Bergerなど）<br>・BIG4（Deloitte, PwC, EY, KPMG）における戦略・業務系コンサルタント（マネージャー以上）<br>・外資系投資銀行 / PEファンド / 総合商社（5大商社）における事業投資、M&A、事業開発の経験者<br>・メガベンチャー（例：リクルート、サイバーエージェント、DeNA、楽天など）において新規事業責任者またはPL責任者としての経験<br>・スタートアップまたは事業会社においてCxO（またはそれに準ずる）経験</p><p>かつ以下を満たす方：<br>・複数のステークホルダーを巻き込むクロスファンクショナルなチームリード経験<br>・売上責任、KPI設計・モニタリング経験を有し、自ら改善アクションを企画・実行した実績<br>・0→1, 1→10フェーズいずれかの事業開発に携わった経験（新規プロダクト立上げ / 事業モデル構築）</p><p><span class='tag tag-want'>WANT</span><br>・SaaS / B2B事業におけるプロダクトグロースまたはセールススケーリングの経験<br>・組織・人材マネジメント（採用・評価制度設計・育成等）に主体的に関わった経験<br>・M&Aの実行およびPMI（統合作業）に関する実務経験<br>・ビジネスレベル以上の英語力</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏢 基本出社</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://landit.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k4"><div class="card-inner">
+  <div class="badges"><span class="badge">biz組織：事業責任者ポジション</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">フリー株式会社（freee）</div>
+  <div class="co-url"><a href="https://corp.freee.co.jp/" target="_blank">https://corp.freee.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都品川区大崎一丁目2番2号アートヴィレッジ大崎セントラルタワー21F</td></tr><tr><th>上場区分</th><td>東証グロース</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    スモールビジネス経営者の課題解決に取り組む社会的意義の高い事業で、ARR前年比約30%成長を続ける上場SaaSならではのベンチャー感を味わえる環境です。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">ミッションは「スモールビジネスを世界の主役に」。スモールビジネス経営者が創造的な活動にフォーカスできることを目指し、全自動のクラウド会計ソフト「freee (フリー)」を開発しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>ミッションは「スモールビジネスを世界の主役に」</p><p>スモールビジネス経営者が創造的な活動にフォーカスできることを目指し、全自動のクラウド会計ソフト「freee (フリー)」を開発しています。「クラウド会計ソフトfreee」は、2013年3月のリリース以来100万以上の事業所で利用されるサービスに成長。（有料課金ユーザーは30万社）クラウド会計ソフトの圧倒的トップシェアを担い、スモールビジネスのバックオフィスのクラウド化を牽引しています。</p><p>またグッドデザイン賞受賞、Infinity Ventures Summit での Launch Pad 優勝、総務省後援の「ASP・SaaS・クラウドアワード　ベンチャー大賞」受賞などの受賞歴を持ち、シリコンバレーの有力ベンチャーキャピタルやシンガポール政府系ファンドなど、グローバルな有力投資家より、2012年7月の創業以来、累計96億円以上の資金提供を受けています。</p><p>フラットな組織で、内発的動機付けから行動していくという考え方を大事にしており、こだわりを持った組織作りをしています。ビジョンミッションに共感したメンバーが集まってきていますが、より強い組織を作るために事業にもプロダクトにも理解があり、未知の領域にトライできる突破力を持った人を必要としています。イノベーションを促進して頂けるような人材を求めております。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 biz組織：事業責任者ポジション</div>
+          <div class="job-preview">新規／既存事業の更なる発展を目指し、現経営メンバーとともにコアメンバーとして事業をリード</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集背景</strong><br>私たちfreeeは「スモールビジネスを、世界の主役に。」というミッションのもと、クラウド会計ソフトをはじめとする様々なサービスを提供しています。「アイデアと行動力があれば、どんな人でも、ビジネスを強くスマートに育てられる世界を創る」これは私たちfreeeが掲げる想いです。経理、人事、労務...バックオフィス業務に追われ、本来やりたかったビジネスに集中できない。そんな悩みを抱える経営者の方々を技術の力で解放したい。だからこそ私たちは、統合型の経営プラットフォームを開発・提供し、スモールビジネスを担うあらゆる方々が創造的な活動にフォーカスできる環境の実現を目指しています。今後フリーがより大きなインパクトを社会に与えていくために、新規／既存事業の更なる発展を目指しともに、現経営メンバーとともにコアメンバーとして事業をリードしてくださる方を求めています。</p><p><strong>業務内容詳細</strong><br>ビジネスサイドから事業推進をリードしてくださる方を求めています。顧客の成功とビジネス成長の両立を図りながら、組織全体の生産性と効果を高めるリーダーシップを期待し、これまでの営業経験とマネジメントスキルを活かし、freeeの事業拡大における重要な役割を担っていただきます。</p><p>ご経験に応じて最適なポジションをすり合わせさせていただきます。下記は担っていただく可能性のあるミッション例です。<br>・事業部視点、プロダクト視点での各種計画作成<br>・実績分析・市場分析による事業成長領域の特定<br>・ユーザ向けイベント企画・運営・実行<br>・新商材、新サービス企画・開発<br>・事業計画の達成に向けたプランニング、実行<br>・事業戦略に基づいたセールス機能定義や業務及び組織設計<br>・オペレーション構築及びモニタリング方法設計</p><p><strong>得られるベネフィット</strong><br><strong>今のフェーズでご入社していただくメリット</strong><br>・社会変革の最前線で活躍<br>全国53万社にご導入いただいているプロダクトカンパニーで、バックオフィス業務の更なる効率化を通じて、日本中の企業の成長を支援するという社会的インパクトの大きな仕事に取り組むことができます。<br>・成長し続ける組織の中核へ<br>事業と組織の両面がスケールする成長フェーズにおいて、あなたのリーダーシップが新たな価値を創出します。安定した財務基盤を持つfreeeでは、必要なリソースを投入しながら果敢に挑戦できる環境があります。日々の業務から手応えを感じながら、自らの能力を最大限に発揮し、キャリアを飛躍的に成長させる機会に満ちています。</p><p><strong>freeeの魅力・特徴</strong><br>・社会的な意義の高いビジネスモデル：<br>freeeは「スモールビジネスを、世界の主役に。」をミッションに、「誰もが自由に経営できる統合型経営プラットフォーム」の実現に向け、会社経営・運営を支えるバックオフィス領域全域に対して、20を超えるサービスの開発・提供し、これまで45万以上の事業所をサポートしてきました。個人事業主の方や会社設立のアーリーフェーズにある企業様から、中堅・大手企業様に至るまで、会社運営に従事する方々の業務環境を向上することで、日本中に本来やりたいことに集中できる環境の輪を広げる、そうした社会の変革を担うやりがいのある仕事に携わっていただくことが可能です。</p><p>・ARR前年比約30%成長を続ける上場SaaSならではのベンチャー感：<br>売上、従業員数、利用事業所数など、いずれも飛躍的に拡大をしている環境ですが、現状に満足することなく、お客様に「マジ価値（本質的な価値があると自信を持って言えること）」を提供をし続けることをモットーに、社員1人1人が考え、仲間を巻き込み、主体性とスピード感を持って働くことができる環境です。</p><p>・多様なキャリアの選択肢：<br>トップシェアのプロダクトの更なる拡大は勿論、M&Aや新たにリリースしたプロダクトのリリースなど変化も多い中で、様々な成長機会を得ることが出来ます。マネジメント領域へのチャレンジはもちろん、企画職やCS職をはじめ、職種を変えたチャレンジの機会も多くあります。</p><p>・多様性を尊重した環境での働きやすさ:<br>freeeでは、多様なバックグラウンドや経験を持つメンバーが活躍し、それぞれの異なる視点を大切にしています。フレックス制の活用やライフステージに合わせた柔軟な働き方を選択するメンバーもいます。これにより、自律的でありながらも一体感のある雰囲気の中で、個々が成長できる環境が整っています。</p><p><span class='tag tag-must'>MUST</span> セールス、マーケティング、事業企画・開発等の何かしらのビジネスサイドにおける職種において、年単位の事業計画立案・実行の経験をお持ちの方<br><span class='tag tag-must'>MUST</span> 数十名以上の組織のマネジメント経験</p><p><span class='tag tag-want'>WANT</span> 事業責任者のご経験<br><span class='tag tag-want'>WANT</span> SaaSやサブスクリプションビジネスのご経験<br><span class='tag tag-want'>WANT</span> スモールビジネスに何らかの関わりを持ったご経験</p><p><strong>求める人物像</strong><br>・freeeのミッション・ビジョンに共感し、下記のバリューを体現できる方／していきたいと思う方<br>社会の進化を担う責任感：社会全体を前に推し進めるべく、社会に信頼される存在であると同時に、本質的であればあえてリスクを取って挑戦していく。<br>ムーブメント型チーム：ミッションに共感し集まった仲間たちが自律的にアクションを起こす。その熱狂が伝播することで、より良い相乗効果を生み出していく集団である。<br>・困難な課題でも前のめりに取り組める意欲・主体性と諦めずにやり抜ける粘り強さをお持ちの方<br>・俯瞰的に物事を認識、判断し、柔軟な対応できる方<br>・役割や役職、レンジにとらわれず、コーチャビリティーとアンラーンの姿勢を持てる方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏢 基本出社</span><span class="pill">🔺 副業条件あり</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corp.freee.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k5"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社現場共創機構</div>
+  <div class="co-url"><a href="http://" target="_blank">http://</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区赤坂２丁目４番６号赤坂グリーンクロス６Ｆ</td></tr><tr><th>上場区分</th><td>未上場</td></tr><tr><th>IPO予定</th><td>当面予定なし</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    立ち上がったばかりの企業で、創業者が個人資産30億円を投じている資本構造が特徴的。現場業界の構造的課題解決を目指し、15年で売上1兆円・雇用10万人創出という壮大なビジョンを掲げています。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「現場の作り手の待遇を上げ、現場企業を人気業種に」「真に持続的な現場業界を創る」ことをビジョンとして掲げ、立ち上がったばかりの企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「現場の作り手の待遇を上げ、現場企業を人気業種に」「真に持続的な現場業界を創る」ことをビジョンとして掲げ、立ち上がったばかりの企業です。</p><p>同社は、日本のベースを支える巨大な市場規模を持つ現場業界（建設職人、電気工事、プラント保全、医療機器保守など）が直面する深刻な人手不足、後継者不足、スケールメリットが取れないといった構造的な課題の解決を目指しています。</p><p>すでに、左官業・防水シーリング工事・外構業の3社がグループインを予定しており、その動きは非常にスピーディです。今後は年間5社のペースでさらなるグループ拡大を進めていく計画です。</p><p>このロールアップ戦略を通じ、15年で売上1兆円・雇用10万人の創出を目指します。最終的には、現場を支えるBtoB中小企業800社をグループ化し、共創によるシナジーで業界全体の変革を実現する構想です。</p><p><strong>同社の大きな特徴は、その資本構造と経営スタンスにあります。</strong></p><p>創業者である佐藤大央氏が個人資産30億円を投じており、外部株主の影響を受けることなく、長期視点での事業運営と永続的な保有が可能です。買収後も、既存の社名や企業文化は尊重され、統合や過度な成長は求めません。短期的な利益最大化やExit（IPO等）にはこだわらず、事業の永続性と業界の持続性を最重要視しています。</p><p><strong>代表　佐藤大央氏</strong></p><p>代表の佐藤大央氏は、野村不動産を経て夢真ホールディングスに入社。その後、夢真ホールディングス代表取締役社長、オープンアップグループ代表取締役社長を歴任しました。前職時代には、営業利益を入社後13倍に伸ばし、売上1,800億円、社員数2.5万人の東証プライム上場企業への統合・経営を牽引した実績を持ちます。</p><p>特に、未経験者育成モデルによるIT技術者派遣や、採用に徹底投資する建設技術派遣の大量採用モデルなど、業界に新しいモデルを構築し、1から10、そして10から100への成長をトップとして牽引しました。さらに、30件以上の多様なM&A実績（交渉、DD、PMIまで実行）と、資金調達（TIP、ABB）、TOB、株式交換を含む資本市場活用の豊富な経験も強みとしています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験や適性に応じて、経営指導・PMI担当などのポジションを提案</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>業務内容：</strong></p><p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p><p><strong>経営指導・PMI担当などとして</strong></p><p>本ポジションの活動の中心は、買収後の価値向上プロセス、PMIにあります。組織の構築や役割がまだ流動的であるため、初期メンバーとして「何でもやっていただく」姿勢が求められ、その中で自分の際立つ領域を見つけていくことになります。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="http://" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k6"><div class="card-inner">
+  <div class="badges"><span class="badge">AX Bizdev</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">トグルホールディングス株式会社</div>
+  <div class="co-url"><a href="https://toggle.co.jp/" target="_blank">https://toggle.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒106-6090 東京都港区六本木1丁目6-1　泉ガーデンタワー 36階</td></tr><tr><th>上場区分</th><td>未上場</td></tr><tr><th>IPOフェーズ</th><td>N-2</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-2期</li><li>不動産開発×テクノロジーで、誰でも簡単に不動産投資ができるインフラを提供している同社。強みはアセットありきで土地を買うのではなく、システムによる土地解析で、利益を出しやすい物件を自動で算出するプロダクトを自前で開発されています。不動産ドメイン知識は入社後のキャッチアップも充分可能とのことです。</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「テクノロジーで 投資不動産の流通を透明化する」をミッションとし、不動産開発のデジタルインフラ事業を手掛けています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「テクノロジーで 投資不動産の流通を透明化する」をミッションとし、不動産開発のデジタルインフラ事業を手掛けています。AIやデータサイエンスを用いて、不動産開発事業の川上にあたる、開発用地の仕入れからDX化に着手し、2020年の創業から4期目で約50億円の売上を達成する見込みです。</p><p>不動産仲介事業者および不動産ディベロッパー対象の、開発用地の流通における業務効率化および売上拡大を支援するプラットフォーム「sketch（スケッチ）」を正式リリース。仕入れから企画・建築・売却までを一貫して行える、売手と買手のマッチングプラットフォームとして開発・運営を行っております。2023年7月のβ版リリースから3か月間で、土地データ流通総額が約1,500億円に達しています。</p><p>2023年11月にはシリーズAにて、HERO Impact Capital1号ファンド、レアゾン・ホールディングス、PKSHA アルゴリズム2号ファンド、オールアバウト、MetaProp Ventures IV, L.P. 、個人投資家を引受先とした約5億6,000万円の資金調達を実施しています。</p><p><strong>代表取締役　伊藤 嘉盛氏</strong></p><p>1984年生まれ。早稲田大学大学院ファイナンスMBA修了。2008年24歳で不動産仲介業を起業、2012年に上場企業へ売却。その後2度目の起業として、2012年不動産テックベンチャー「イタンジ株式会社」を2012年に設立。2018年同社を㈱GA technologiesに売却し、同じ年に3度目の起業としてトグルを設立。トグルでは、「現物不動産とそのステークホルダーが技術革新に適応できずにいる」という課題認識から、「不動産領域におけるテクノロジーの社会実装」をミッションに掲げました。2020年トグルホールディングス㈱を創業。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 AX Bizdev</div>
+          <div class="job-preview">AIソリューション『toggle エージェント』のBizDevを担当</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集の背景</strong></p><p>トグルホールディングスは、「つくる・かえる・かわる」というパーパスのもと、属人的だった不動産業界をAI技術で変革してきました。この成功を通じて私たちが確立した強みは、「AIの力で事業を根本から再構築する能力」です。</p><p>そして今、私たちはその能力を不動産の枠を超えて全産業へと展開する、新たなフェーズへと移行します。不動産はあくまで私たちの「独自のデータとアルゴリズム」を構築した出発点に過ぎません。新たに「不動産業界での属人知の超克を礎に、産業社会に革命をもたらす。」というミッションを掲げ、あらゆる産業の変革をAIでリードしていきます。</p><p><strong>事業概要</strong></p><p><strong>AIソリューション『toggle エージェント』</strong></p><p>個社ごとに最適化され分断されたSaaSや社内システムを横断的に連携させ、業務全体の自動化を実現するAIソリューションです。これまで担当者が手動で行っていた複数のツールをまたぐ情報収集、転記、資料作成といった一連のプロセスを、自然言語による指示一つで完結。不動産・建設・金融をはじめ、あらゆる業界の生産性を飛躍的に向上させます。</p><p><strong>お任せしたい業務内容</strong></p><p>当社のAIソリューション『toggle エージェント』を、エンタープライズおよびSMB顧客に対して展開し、導入から成功までを推進することで事業の柱を築いていただきます。</p><ul><li>インサイドセールスの推進・リードによる商談創出の最適化</li><li>エンタープライズおよびSMB顧客へのプロダクトセールス（直販・新規開拓）</li><li>顧客の課題深掘りから、toggle エージェントを活用した最適なソリューション提案の実施</li><li>提案書作成、プレゼンテーション、価格交渉、契約締結までのクロージング全般</li><li>契約中顧客への利活用最大化によるチャーン防止、およびアップセル提案（CS業務）</li><li>toggle エージェントの市場浸透のための新規パートナーシップの開拓やアライアンス戦略の立案・実行</li><li>顧客の声や市場トレンドを開発・マーケティングチームへフィードバックし、プロダクト改善・事業戦略策定に貢献</li></ul><p><strong>必須スキル</strong></p><ul><li><span class='tag tag-must'>MUST</span> BtoB向けソリューションの直販セールス経験3年以上</li><li><span class='tag tag-must'>MUST</span> SaaSやITソリューションなど、無形商材のハイタッチセールス経験</li><li><span class='tag tag-must'>MUST</span> 経営層や役員クラスとのリレーション構築、提案、交渉経験</li><li><span class='tag tag-must'>MUST</span> 事業計画に基づく売上目標の達成に向けた戦略策定、実行経験</li><li><span class='tag tag-must'>MUST</span> 異なるチームや職種をまたいだコミュニケーション能力</li></ul><p><strong>歓迎スキル</strong></p><ul><li><span class='tag tag-want'>WANT</span> AI、クラウドサービス、DXソリューションなどの先端技術関連プロダクトのセールス経験</li><li><span class='tag tag-want'>WANT</span> 新規事業開発やアライアンス、パートナーセールスなどBiz Dev的な業務経験</li><li><span class='tag tag-want'>WANT</span> 不動産、建設、金融業界の企業に対するソリューション提案経験</li><li><span class='tag tag-want'>WANT</span> 営業プロセスの設計・改善、またはチームの立ち上げ経験</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://toggle.co.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://note.com/toggle/" target="_blank">📝 note</a><a class="lbtn lbtn-out" href="https://www.youtube.com/watch?v=-na4E5pxZ9w&t=7s" target="_blank">🎥 プロダクト動画</a></div>
+</div></div>
+
+<div class="card" id="k7"><div class="card-inner">
+  <div class="badges"><span class="badge">経営企画室長</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">CPAエクセレントパートナーズ株式会社</div>
+  <div class="co-url"><a href="https://cpa-excellent-partners.co.jp/" target="_blank">https://cpa-excellent-partners.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都新宿区新宿3-14-20 新宿テアトルビル5F</td></tr><tr><th>設立</th><td>2001年</td></tr><tr><th>上場区分</th><td>未上場</td></tr><tr><th>IPOフェーズ</th><td>N-3</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備フェーズ：N-3期</li><li>社長リレーション</li><li>過去複数名入社実績アリ</li><li>公認会計士試験の合格占有率は驚異の60％、そして売上成長率は過去5年間で850%と非常に好調です。数年後のIPOを目指し、ベンチャーマインドを持つ成長企業として新規事業やM&Aなども積極的におこなっていく方針と伺っております。</li><li>今後は売上数百億円、海外展開も見据えており、優秀な仲間を増やしたいと積極採用されています。「事業にコミットしながら仲間を大切に、長期就業してほしい」という社長の想いもあり、離職率は大変低いです。平均年齢32歳、平均年収1,000万円と、成果をしっかり評価し社員に報酬で還元されています。</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「学習支援」「キャリア支援」「人材交流」の総合的なサポートにより、会計人材の可能性を広げていくことを目指し、公認会計士資格スクール『CPA会計学院』を全国に展開しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「学習支援」「キャリア支援」「人材交流」の総合的なサポートにより、会計人材の可能性を広げていくことを目指し、公認会計士資格スクール『CPA会計学院』を全国に展開する他、無料で簿記・会計が学べるeラーニングプラットフォーム『CPAラーニング』、 会計人材に特化した人材紹介サービス『CPASSキャリア』をはじめとした会計人材の生涯支援事業『CPASS』を運営しています。</p><p>主要事業の「公認会計士資格スクールCPA会計学院」は、公認会計士試験にて過半数の合格者を輩出する実績を出しています。2023年 公認会計士試験合格者1,544名のうち786名がCPA会計学院の受講生でした。また8年連続合格者数を更新しています。</p><p>また2020年にサービスを開始した『CPAラーニング』は、主に会計・経理・ファイナンス人材が、実務で必要とする知識・スキルを完全無料で受講できるeラーニングプラットフォームです。現在 約1,000本の講義動画を無料で公開しており、受講者は50万人を超えています。</p><p>設立は2001年。代表の国見社長が、大学を卒業してすぐのタイミングで「日本一良い教育機関をつくりたい」という想いを胸にCPAエクセレントパートナーズ株式会社を創業。立ち上げ当時は23歳、起業して数年の間は常勤職員は国見社長お1人で、講義はもちろん個別相談も受付業務もビラ作りも、必要な業務はすべてこなされていました。設立から20年以上事業継続され、今では公認会計士試験の合格者占有率50%以上を誇る資格スクールを全国展開、公開したeラーニングの会員数は50万人超です。これまで一切の資金調達を行わず、自己資本のみでここまで会社を成長させてきました。</p><p><strong>代表取締役　国見 健介氏</strong></p><p>1978年生まれ。慶應義塾大学経済学部の在学中（3年生）に、公認会計士試験に合格。「教育は、人の人生の可能性を広げる」やりがいのある仕事だなと考えるようになり、大学卒業後、CPAエクセレントパートナーズ株式会社を創業。ミッションやビジョンに共感をしてくれる人、大切にしたいバリューや行動指針に心から共感してくれる人の採用を大事にされています。</p><p><strong>運営事業</strong></p><ul><li>公認会計士資格スクール「CPA会計学院」の運営</li><li>簿記や会計ファイナンスを完全無料で学べるeラーニング「CPAラーニング」の運営</li><li>会計ファイナンス人材特化型 求人サイト 「CPAジョブズ」の運営</li><li>会計ファイナンス人材特化型 転職エージェント「CPASSキャリア」の運営</li><li>会計ファイナンス人材の生涯支援プラットフォーム「CPASS」の運営</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 経営企画室長</div>
+          <div class="job-preview">副社長直下にて、全社横断の経営企画・戦略機能を統括</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>業務内容：</strong></p><p>副社長直下にて、全社横断の経営企画・戦略機能を統括</p><ul><li>経営戦略・事業戦略の立案および推進</li><li>M&A／アライアンス関連業務（検討・実行・PMI支援 等）</li><li>新規事業の企画・立ち上げ・グロース支援</li><li>全社重要プロジェクトの企画・推進・進捗管理</li><li>その他、経営直轄の特命プロジェクト全般</li></ul><p><strong>必須スキル：</strong></p><p><span class='tag tag-must'>MUST</span> M&Aや事業開発ができる方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏢 基本出社</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://cpa-excellent-partners.co.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://cpa-net.jp/" target="_blank">📚 CPA会計学院</a><a class="lbtn lbtn-out" href="https://www.cpa-learning.com/" target="_blank">🎓 CPAラーニング</a><a class="lbtn lbtn-out" href="https://www.youtube.com/watch?v=MORmdiJGcuA&t=1s" target="_blank">🎥 社長メッセージ動画</a><a class="lbtn lbtn-out" href="https://www.youtube.com/watch?v=oG7U4z4_Fp0" target="_blank">🎥 PIVOT対談</a></div>
+</div></div>
+
+<div class="card" id="k8"><div class="card-inner">
+  <div class="badges"><span class="badge">事業開発／商品企画（クラウドサイン）</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">弁護士ドットコム株式会社</div>
+  <div class="co-url"><a href="https://corporate.bengo4.com/corporate/" target="_blank">https://corporate.bengo4.com/corporate/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒106-0032 東京都港区六本木四丁目1番4号 黒崎ビル6階</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>過去複数名入社実績アリ</li><li>役員リレーション</li><li>カジュアル面談スタートOK</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">弁護士ドットコムは、「プロフェッショナルテック」で次の常識をつくる企業として、法律をもっと身近にするという創業当初から変わらないミッションを追求し続けています。2005年に弁護士出身の元榮太一郎氏が創業して以来、現在では登録弁護士数29,000人以上、月間サイト訪問者数1,600万人を誇る日本最大級の法律ポータルサイトへと成長。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>弁護士ドットコムは、「プロフェッショナルテック」で次の常識をつくる企業として、法律をもっと身近にするという創業当初から変わらないミッションを追求し続けています。2005年に弁護士出身の元榮太一郎氏が創業して以来、現在では登録弁護士数29,000人以上、月間サイト訪問者数1,600万人を誇る日本最大級の法律ポータルサイトへと成長。特に電子契約サービス「クラウドサイン」は日本初のクラウド型電子署名サービスとして市場シェアNo.1を獲得し、グレーゾーン解消制度の活用や規制改革推進会議への参加を通じて電子契約の社会実装に大きく貢献。2023年10月には判例データベース「判例秘書」を提供する株式会社エル・アイ・シーを買収、法務領域における総合プラットフォーム企業としての地位を確立しています。</p><p>最近では、AIと法務領域を融合させた先進的な取り組みが注目され、アンダーソン・毛利・友常法律事務所やみらい翻訳と連携した国内初の法務領域マルチエージェント連携実証実験を開始し、法務業務の革新的な効率化を目指しています。また、2025年12月には東証グロースから東証プライムへの市場変更を果たし、創業20年を迎える節目の年に更なる成長ステージへと駒を進めました。</p><p>弁護士をはじめとする専門家の知見と最先端テクノロジーを融合し、社会課題の解決に挑むプロフェッショナル・テック企業です。単なるITサービスの提供に留まらず、法曹領域という高い専門性が求められる分野で新たな仕組みを実装している点に、同社ならではの希少性があります。</p><p>掲げるビジョンは「まだないやり方で、世界を前へ」。創業20周年を迎えた現在も、ベンチャー精神を失うことなく、既存の常識や業界構造そのものをアップデートし続ける姿勢が、組織全体に根付いています。</p><p>また、プロダクト開発の現場では「いいものを最短距離で」「最適化し続ける」「チームとして仕事する」といった価値観が浸透しています。高い専門性を持つ人材同士が協働しながら、安定した事業基盤の上でなお挑戦を楽しみ、本質的な価値創出に向き合える環境です。CHROをはじめ、複数名の幹部メンバーがmorich経由でご入社いただいております。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業開発／商品企画（クラウドサイン）</div>
+          <div class="job-preview">クラウドサインのパートナーネットワークを活用したアライアンスや商品の企画開発および営業企画</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集背景</strong><br>電子契約の普及については初期市場を終え、メインストリームでの導入期に入って来ています。この中で、クラウドサインや弁護士ドットコムという単一のプロダクト・企業だけでは成し遂げることのできない真のDXを実現し続けるために、アライアンスによる事業開発の重要性は日に日に増大しており、組織体制の強化を予定しています。</p><p><strong>職務概要</strong><br>クラウドサインのパートナーネットワークを活用したアライアンスや商品の企画開発および営業企画</p><p><strong>職務詳細</strong><br>クラウドサインのプロダクトパートナーとのアライアンスの強化に関する企画立案と実行、パートナープロダクトとの連携による新商品やアライアンスの企画・組成および営業企画を行います。</p><ul><li>クラウドサインの事業戦略に即した新規取組の企画</li><li>プロダクトパートナー等への提案および条件面での交渉</li><li>新商品やアライアンス実行のための社内調整</li><li>パートナープロダクトの連携商品の商談・販売実績のモニタリング</li><li>販促活動の企画</li></ul><p>社内外多くのステークホルダーとの調整を行いながら、幅広く業務をご担当いただきます。</p><p><strong>応募資格</strong></p><p><span class='tag tag-must'>MUST</span><br>下記いずれかのご経験</p><ul><li>SaaSにおけるBtoBの法人営業でのご経験</li><li>パートナーとのアライアンス業務でのご経験</li><li>サービス開発/事業開発のご経験</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>Salesforce/kintoneといった外部サービスAdminでのご経験</li><li>API開発などのご経験</li><li>SaaSマーケティングのご経験</li><li>ターゲティングを含めた営業企画業務のご経験</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">✅ 副業（条件によって可）</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://corporate.bengo4.com/corporate/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://www.slideshare.net/ssuser2ca81f/saiyo-vol4-20210126-241859561" target="_blank">📄 採用資料</a></div>
+</div></div>
+
+<div class="card" id="k9"><div class="card-inner">
+  <div class="badges"><span class="badge">Bizdev/事業開発</span><span class="badge badge-blue">非公開（元東証グロース）</span></div>
+  <div class="co-name">株式会社カオナビ</div>
+  <div class="co-url"><a href="https://www.kaonavi.jp/" target="_blank">https://www.kaonavi.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒150-6138　東京都渋谷区渋谷2-24-12 渋谷スクランブルスクエア 38F</td></tr><tr><th>上場区分</th><td>非公開（元東証グロース）</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>社長リレーション</li><li>役員とのカジュアル面談スタート可</li><li>過去入社実績アリ</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">社員のスキルや経験などの人材データを一元管理し、人材戦略に活用する「タレントマネジメントシステム」を提供するSaaS企業です。主力サービス「カオナビ」は、トヨタやみずほ銀行をはじめ、大手企業から中央省庁・地方自治体まで幅広く導入されており、2025年9月末時点で導入社数は4,500社を超えています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>社員のスキルや経験などの人材データを一元管理し、人材戦略に活用する「タレントマネジメントシステム」を提供するSaaS企業です。主力サービス「カオナビ」は、トヨタやみずほ銀行をはじめ、大手企業から中央省庁・地方自治体まで幅広く導入されており、2025年9月末時点で導入社数は4,500社を超えています。</p><p>2019年に東証グロース市場へ上場後、2025年6月にはカーライル・グループによる買収を経て非公開化。これは業績不振によるものではなく、「企業価値最大化に向けた戦略的な意思決定」と位置づけられており、5年後に現在の数倍規模での再上場を目指しています。</p><p><strong>新ビジョン「タレントインテリジェンス」とデータプラットフォームへの進化</strong><br>今後は「タレントインテリジェンス」を新たなビジョンに掲げ、単なるHRテック企業ではなく、&quot;人材データのプラットフォーム&quot;への進化を推進しています。</p><p>AIとタレントマネジメントを掛け合わせ、蓄積された人事データをもとに、AIエージェントが顧客へ最適なインサイトを提供する世界観の実現を目指しています。プロダクト面でも、採用管理（ATS）など周辺機能を「カオナビ」内へ統合し、人事・組織コンサルティングの基盤となるデータプラットフォーム構想を進めています。</p><p>これらの成長戦略は、新規事業開発とM&Aの両輪で推進。非公開化によって、上場企業時代には難しかった大規模かつ大胆な成長投資を、カーライルの支援のもと加速させていく方針です。</p><p>また、代表取締役の佐藤寛之氏は非公開化後も引き続き経営を担い、カーライル側の経営人材も加わることで、経営体制の強化も進められています。</p><p>働き方としては、「生産性を高め、労働時間を短くする」文化が根付いており、コアタイム10:00〜15:00のフレックス制を導入。働く場所も自由度が高く、兼業も可能です。正社員・業務委託を問わず、多様な働き方を実現している点も特徴です。</p><p>現在はタレントマネジメントシステムが中心ですが、労務や勤怠管理などHRテック領域を広げマルチプロダクト化していかれる構想です。他のHRプロダクトは人事部門の方が専門的に使う処理系のシステムが多いのに対し、タレントマネジメントシステムは全従業員が使用します。データを集め解像度を上げてマルチプロダクトしていき、働き方の改善など人と企業を繋げてマネタイズしていくことを目指しています。</p><p>株式非公開化にあたり、当時の株価3倍で買い取ってもらっており、それに見合う企業価値（時価総額）を今後作っていく必要があるとのことです。組織をスケールさせて事業拡大するにあたり、経営レイヤー・リーダーシップ層の採用に注力していく方針と伺っております。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 Bizdev/事業開発</div>
+          <div class="job-preview">新規事業のグロースに向け、仮説立案から実行・グロースまでを一貫して担当</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集背景</strong><br>これまで当社は、タレントマネジメントシステム「カオナビ」にて人材管理市場において8年連続シェア№1※（2024年12月末時点で利用企業数4,100社以上）を獲得してきました。</p><p>更なる事業拡大に向けて、2024年に新規事業として予実管理システム「ヨジツティクス」、労務管理システム「ロウムメイト」をリリースしました。</p><p>「テクノロジーで社会の仕様をアップデートする」カオナビが思い描くのは、「個」の力が開かれ、誰もが社会で活躍できる未来。そのために私たちは、&quot;はたらく&quot;にテクノロジーを実装し、個の力から社会の仕様を変えようとしています。</p><p>「カオナビ」が核となり、あらゆる⼈材系サービスと連携することで⼈材情報の⼀元管理が可能になる&quot;データプラットフォーム構想&quot;を掲げており、その実現のため、タレントマネジメントに隣接する領域において、今後もサービス開発やM&Aの検討等を進め、将来の新規事業の種まきを実施していきます。</p><p>まずはセールスとして当社サービスの価値を市場に届け、顧客との対話を通じて事業への理解を深めていただき、将来的には事業全体の成長をけん引する責任者として、自らの裁量で事業の成長戦略を描き実行していただける人材を求めています。</p><p><strong>業務内容</strong><br>新規事業のグロースに向け、ありとあらゆるアプローチを用いて、仮説立案から実行・グロースまでを一貫してお任せします。</p><p>まずはセールス領域での活躍を通じて事業成長に貢献いただき、事業への理解を深めていただくことを想定しています。その後、事業全体を見渡せる視点を身につけていただきつつ、収益戦略の立案や推進など、より幅広い役割を担っていただくことを期待しています。</p><p><strong>具体的には：</strong></p><ul><li>リード獲得における施策立案、実行</li><li>セールス活動の推進、アップデート</li><li>外部パートナーとのアライアンス推進</li><li>データ分析やレポーティング、その結果に基づく課題発見と解決</li><li>グロース戦略の立案や見直し、実行計画のアップデートと推進</li></ul><p><strong>将来的には：</strong></p><ul><li>事業責任者としての収益管理や中長期戦略の策定</li><li>チーム組織の構築とマネジメント</li><li>新規サービスの立ち上げや事業領域の拡大</li><li>全社的な事業戦略への参画と実行推進</li></ul><p><strong>ポジションの魅力</strong></p><ul><li><strong>新規事業の立ち上げに携われる</strong><br>これから0→1や1→10で事業を立ち上げるというフェーズです。また、チャレンジングな環境で、ビジネスに求められるスキル全般が身につきます。</li><li><strong>事業全体を見る視座が養われる</strong><br>顧客との初回接点を持つ重要ポジションとして、企業の中核を担う経営者や役職者に対する限られた時間の中でのヒアリングを通し、提案力や傾聴力、データ分析力や業界のトレンドなどの知見を身につけることが可能です。</li><li><strong>今後も成長が期待される巨大市場で、企業の成長戦略の中核を担うことができる</strong><br>人材データプラットフォーム関連市場規模は約8.4兆円と算出されています。今まで拡大してきたタレントマネジメントシステムの土台があるため、顧客の声やデータに基づいた戦略的な展開を描きやすい環境です。</li></ul><p><span class='tag tag-must'>MUST</span><br>以下いずかの経験（計3年以上）</p><ul><li>ITシステムの新規営業経験 及び 事業企画、事業推進業務経験（KPI設計・分析、事業戦略立案 等）</li><li>HRTech系サービスを扱った営業マネージャー経験</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>コンサルティング業界で事業開発を行ってきた経験</li><li>事業責任者相当の経験または組織マネジメントの経験</li><li>アカウンタビリティスキル</li><li>事業計画の策定、予実管理（KPI管理）の経験</li></ul><p><strong>求める人物像</strong></p><ul><li>当社のパーパス/ビジョン/バリューに共感できる方</li><li>新しい仕事や仕組みを作るのが好きな方</li><li>責任感・覚悟をもってやりきれる方</li><li>細やかな仕事ができる方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 フルリモート可</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.kaonavi.jp/" target="_blank">🏢 企業サイト</a><a class="lbtn lbtn-out" href="https://www.businessinsider.jp/article/2506-kaonavi-s-tob/" target="_blank">📰 社長インタビュー</a></div>
+</div></div>
+
+<div class="card" id="k10"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">株式会社ストライク</div>
+  <div class="co-url"><a href="https://www.strike.co.jp/" target="_blank">https://www.strike.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>〒100-0004 東京都千代田区大手町1丁目2番1号 三井物産ビル15階</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">小型～中型の案件に特化した独立型M&A仲介会社です。1997年創業以来、時代に先駆けてインターネットを活用、日本初となるM&Aプラットフォーム「SMART」等により着実な成長を遂げ、2017年6月に東証一部（現東証プライム市場）へ上場を果たしています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>小型～中型の案件に特化した独立型M&A仲介会社です。1997年創業以来、時代に先駆けてインターネットを活用、日本初となるM&Aプラットフォーム「SMART」等により着実な成長を遂げ、2017年6月に東証一部（現東証プライム市場）へ上場を果たしています。</p><p>代表の荒井氏を含め複数名の公認会計士が在籍しており、会計・税務的な見地を活かした仲介サービスを充実させていることに加え、インターネットを活用することによる効率的なマッチングで、業界トップレベルの経験と実績を誇ります。（2023年9月期における成約組数は207組、平均単価は66.8百万円）</p><p>近年はベンチャー企業のM&Aにも取り組んでおり、2021年10月にスタートアップ領域のM&Aの活性化を目的とした「イノベーション支援室」を設立。IPOに依存しない、出口戦略としてのM&Aや、企業成長のための M&A機会を創出しています。</p><p><strong>代表取締役社長　荒井 邦彦氏</strong><br>1970年生まれ。一橋大学商学部卒業後、太田昭和監査法人（現EY新日本有限責任監査法人）に公認会計士として入社。ＩＰＯ支援、財務デューディリジェンスなどの業務を経験。仕事の中で出合ったM&Aのダイナミックさに惹かれ、この領域での起業を決意する。1997年に株式会社ストライクを設立し代表取締役社長に就任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.strike.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k11"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">株式会社M&A総合研究所</div>
+  <div class="co-url"><a href="https://masouken.com/" target="_blank">https://masouken.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都千代田区丸の内1丁目8-1 丸の内トラストタワーN館18階</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    環境的に、今後一気に成長する可能性を感じている案件です。ファイナンス面含め、オーナー企業にとっての経営の要になるような経験値を積んでいただくことができるかと思っております。将来的には、同社が買収した企業のトップで経営をしていただく・・と言うようなキャリアパスも可能ということです。
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">中小企業の後継者不在による社会問題をM&Aで解決するため、2018年10月に設立し、設立から3年9ヶ月で2022年の6月に上場しております。上場から3ヶ月程度、創業からは4年で時価総額1,000億円超の企業となっております。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>中小企業の後継者不在による社会問題をM&Aで解決するため、2018年10月に設立し、設立から3年9ヶ月で2022年の6月に上場しております。上場から3ヶ月程度、創業からは4年で時価総額1,000億円超の企業となっております。</p><p>M&A仲介という業界にテクノロジーを取り入れ、AIやDXを用いて効率化やスピード化を図っております。またその結果、「譲渡企業完全成功報酬制」でのサービス提供が可能になっており、売り手様にとってもリスクなくM&Aを進められるようになっています。</p><p>当社はM&Aで社会問題を解決するだけでなく、レガシーな領域でテクノロジーを用いて革新することで、今の20〜30代のメンバーで将来的には数兆円規模の企業になることを本気で目指しています。新規事業の立ち上げや自社でのM&Aにより社会的に価値のあるビジネスを創出し、企業価値を高めていきます。</p><p><strong>弊社ストロングポイント</strong></p><ul><li>①インセン率が業界最高水準（しっかり報いて、評価するスタンス）</li><li>②他社は人数多くて案件回ってこないが、同社は少数精鋭のため2~3.5倍の案件担当可能。成長速度(即戦力化）が速い。→今期の営業成績1位は未経験者。</li><li>③活躍に応じて、SOの付与があるため給与だけではできない資産形成が可能。</li><li>④多様なM&A仲介会社出身の経験者メンバーで構成されているため、ソリューションもすべていいどこ取りをしている。未経験者も様々な視点で学べる環境がある（マーケットvalueの高い人材に育つ）</li><li>⑤最先端のIT技術を使っているため、通常の仲介会社のレガシーな営業から一変した営業手法を取ることができる。また、営業メンバーがエンジニアと話しながらツールを制作することも可能。</li><li>⑥将来的には、優秀な人材には、実際に自ら見つけてきた会社を買収し、その会社の経営者orオーナーとしての将来を歩むことが可能となるようなキャリアパスも用意する</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験に応じてポジションを提案いたします</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏢 基本出社</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://masouken.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k12"><div class="card-inner">
+  <div class="badges"><span class="badge">オープンポジション</span><span class="badge badge-blue"></span></div>
+  <div class="co-name">株式会社GA technologies</div>
+  <div class="co-url"><a href="http://" target="_blank">http://</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都渋谷区広尾1-1-39 恵比寿プライムスクエア8F</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">企業紹介情報が記載されておりません。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>企業紹介情報が記載されておりません。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 オープンポジション</div>
+          <div class="job-preview">ご経験に応じてポジションを提案いたします</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p>ご経験や適性に応じて、ご経験を活かしていただけそうなポジションを提案させていただきます。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="http://" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k13"><div class="card-inner">
+  <div class="badges"><span class="badge">CEO直下事業開発</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">株式会社BuySell Technologies</div>
+  <div class="co-url"><a href="https://buysell-technologies.com/" target="_blank">https://buysell-technologies.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都新宿区四谷4-28-8 PALTビル</td></tr><tr><th>上場区分</th><td>東証グロース</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <p>BuySell Technologiesは主に着物など高額品の出張買い取りをシニア向けに展開しています。リユース業界は3兆円規模のマーケット（個人の隠れ資産を含めると44兆円とも言われている）でありながら、圧倒的なトッププレイヤーがおらず（ゲオ社やセカンドストリート社などがある程度知名度アリ）、年商100億円以下の企業がひしめき合っています。</p><p>同社では地方企業含むリユース領域のM&Aに注力し、すでに4社100％買収（成約済含）の実績があり、今後ますますM&Aを加速する予定です。また、買収先企業の中には事業計画・財務諸表など経営手法に課題を抱えながら年商100億弱を上げている企業も多く、PMIによる伸びしろも多いです。</p><p>toC領域でM&Aを数多く実現できるフィールドはあまり無い中で、希少なポジショニングかと存じます。今後は遺品整理などでもニーズが拡大していく伸びしろある同社にて、これまでの手腕を発揮してみてはいかがでしょうか？</p>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">M&A仲介業と出張買取サービス「BUYSELL」を展開しています。サステナビリティ・SDGsへの関心の高まりにより、サービス開始以降 連続増収を続けており、2023年12月期は売上高423億円、営業利益25億円を見込んでいます。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>M&A仲介業と出張買取サービス「BUYSELL」を展開しています。</p><p>サステナビリティ・SDGsへの関心の高まりにより、サービス開始以降 連続増収を続けており、2023年12月期は売上高423億円、営業利益25億円を見込んでおり、リユース業界においてトップクラスのサービスです。</p><p>買取事業では、年間24万件以上の査定を行う出張買取を中心に、店舗買取や宅配買取など、多様なチャネル／ブランドを運営。商材としては幅広く、着物・切手・ブランド品の高価格帯商材を中心に、レコード・家電等、家々に眠る様々な &quot; かくれ資産 &quot;を取り扱っています。</p><p>販売事業では、買取した商品を自社一元管理し、自社ECやECモール、BtoBの古物オークションなど、toB/toC問わず日本国内から世界まで、最適なチャネルへ流通させています。</p><p>これらの既存事業の成長に加え、非連続な成長を図るべく、積極的なテクノロジーへの投資とM&A戦略を重要な経営戦略と位置付けています。テクノロジー投資については、エンジニア組織の積極的な拡大を図り、リユースプラットフォーム「Cosmos」の開発を推進。M&Aについては、2020年10月にはリユースオークションを運営する株式会社タイムレス、2022年７月にはリユースフランチャイズ事業を展開する株式会社フォーナイン、2023年12月にはラグジュアリーブランドの買取・販売を強みとする株式会社日創を、2024年8月には「買取 福ちゃん」運営企業を含むリユース企業計7社を有するレクストHDを子会社化しており、今後もリユースおよび関連業界への積極的なM&Aを推進していくことを計画しています。</p><p>2024年12月期第2四半期の決算についても非常に好調に推移しており、今年度売上予想は約600億円に上方修正も行っています。</p><p><strong>代表プロフィール</strong></p><p>・代表取締役社長兼 CEO　徳重浩介氏<br>2006年立教大学卒業後、リクルートに入社。飲食領域の営業を経て13年にリクルートマーケティングパートナーズ アド・オプティマイゼーション推進室に異動。その後、執行役員　企画統括室長を経て16年にまなび領域担当へ。2019年にリクルートライフスタイルの執行役員となり、飲食領域担当に。2021年飲食Division長。2024年4月より代表取締役社長兼 CEO 就任。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 【CEO直下】事業開発</div>
+          <div class="job-preview">次の柱を作っていくための新規事業開発がミッションです</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>仕事概要</strong></p><p>次の柱を作っていくための新規事業開発がミッションです。非連続な成長を遂げるために、既存の事業モデルにとらわれず、商材の川上から川下まで絵をかきながら形にしていき、次の柱を育てていきます。</p><p><strong>具体的には・・・</strong></p><p>例）toC向けサービス、自社ブランド立ち上げ、O2O、新規業態店舗の開発、国外向けサービスなど、立案した戦略を実行し、収益化まで推進していただく事をお願いします。</p><ul><li>新規事業の企画・立案・検証、およびその統括</li><li>新規顧客獲得施策の計画・実行・検証、及びその統括</li><li>既存顧客向け施策の計画・実行・検証、及びその統括</li><li>各事業との横断・連携の最適化、及びその統括</li><li>市場調査等のディレクション</li><li>本部内各セクション間、他部署間を連携させ業務を円滑に推進するプロデュース</li></ul><p>※その方のスキルやキャリアに併せて担当領域をお渡ししていく予定です。</p><p><strong>募集背景</strong></p><p>現在、リユース関連領域や主要顧客層であるシニア層に向けた新規サービス、アライアンスによるアップセルなどの多くのプロジェクトを推進しており、新規事業の開発を行っていただける方を新たにお迎えしたいと考えております。</p><p><strong>組織構成</strong></p><p>CEO直下の所属で2025年1月に部署新設を予定しております</p><p><strong>働き方</strong></p><p>残業20時間程度
+リモートワーク導入（但しオンボーディング期間は出社必須）</p><p><strong>仕事を通して得られるもの</strong></p><ul><li>事業会社での新規事業立ち上げ経験</li><li>商材（ブランドやアパレル・ジュエリー等）の調達・販売に関する専門的な知識・経験</li><li>海外への事業展開によるグローバルな知見や業務の経験</li><li>事業に関わる数字・データを全て把握して戦略・打ち手の策定をする経験</li><li>数億円の事業予算をコントロールする経験</li><li>経営層とコミュニケーションして意思決定をする経験</li><li>ベンチャー企業でのスピード感ある業務推進・意思決定の経験</li></ul><p><strong>キャリアステップ</strong></p><p>マネジャー⇒部長⇒本部長⇒子会社CxO　など</p><p><strong>必須スキル</strong></p><p>以下いずれかのご経験必須</p><ul><li><span class='tag tag-must'>MUST</span> 事業開発責任者</li><li><span class='tag tag-must'>MUST</span> 戦略/総合コンサルティングファーム出身</li></ul><p><strong>歓迎スキル</strong></p><ul><li><span class='tag tag-want'>WANT</span> 新規事業の実行に携わった経験</li><li><span class='tag tag-want'>WANT</span> 事業計画書の作成経験</li></ul><p><strong>求める人物像</strong></p><ul><li>成長意欲が高く、自らの役割を拡張したい方</li><li>圧倒的な当事者意識をもって、自ら考え行動し、スピード感をもって仕事を推進できる方</li><li>広い視野を持ち、多面的な思考ができる方</li><li>オーナーシップをもって、一つ一つの業務をやりきることのできる方</li><li>意見を素直に聞くことのできる方</li></ul>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://buysell-technologies.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが田中僚 様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
